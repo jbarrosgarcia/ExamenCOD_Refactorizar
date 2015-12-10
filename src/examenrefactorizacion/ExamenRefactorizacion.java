@@ -1,15 +1,13 @@
 package examenrefactorizacion;
-
+import java.util.Scanner;
 public class ExamenRefactorizacion {
 
-    public static boolean p = false;
+    public static boolean esPrimo = false;
 
     public static void main(String[] args) {
-        int dig = 3;
-        int ndig = 0;
-        if (dig <= 0) {
-            System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
-        }
+        int totalDigitos = 3;
+        int numDigitos = 0;
+        
         for (int i = 1; i <= 99999; i++) {
             int aux = i;
 
@@ -19,14 +17,14 @@ public class ExamenRefactorizacion {
                 aux = aux / 10;
                 contador++;
             }
-            ndig = contador;
+            numDigitos = contador;
 
-            if (ndig == dig) {
+            if (numDigitos == totalDigitos) {
                 if (i < 4) {
-                    p = true;
+                    esPrimo = true;
                 } else {
                     if (i % 2 == 0) {
-                        p = false;
+                        esPrimo = false;
                     } else {
                         int contador1 = 0;
                         int i1 = 1;
@@ -46,15 +44,22 @@ public class ExamenRefactorizacion {
                         }
 
                         if (contador1 == 1) {
-                            p = true;
+                            esPrimo = true;
                         }
                     }
                 }
 
-                if (p == true) {
+                if (esPrimo == true) {
                     System.out.println(i);
                 }
             }
         }
     }
-}
+//    public void introducirDigitos(int totalDigitos){
+//        Scanner aux=new Scanner(System.in);
+//        if (totalDigitos <= 0) {
+//            System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
+//            totalDigitos=aux.nextInt();
+//        }
+//    }
+//}
