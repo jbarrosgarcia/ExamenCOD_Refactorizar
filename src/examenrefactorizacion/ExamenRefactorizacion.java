@@ -10,12 +10,12 @@ public class ExamenRefactorizacion {
     public static void main(String[] args) {
 
         int numDigitos = 0;
-        introducirDigitos();
+        totalDigitos=introducirDigitos();
         for (int numeroComparar = 1; numeroComparar <= 99999; numeroComparar++) {
             int divisionEntera = numeroComparar;
 
             int contador = 0;
-            contadorDivisionEntera(numeroComparar);
+           numDigitos=contadorDivisionEntera(numeroComparar);
            
             if (numDigitos == totalDigitos) {
                 if (numeroComparar < 4) {
@@ -60,21 +60,17 @@ public class ExamenRefactorizacion {
     public static int introducirDigitos() {
         Scanner aux = new Scanner(System.in);
         System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
+        totalDigitos = aux.nextInt();
         if (totalDigitos <= 0) {
-
+            System.out.println("Ingreso un numero erroneo por favor\nIngrese como parámetro, un numero de digitos correcto (mayor que 0): ");
             totalDigitos = aux.nextInt();
-        } else {
-            if (totalDigitos <= 0) {
-                System.out.println("Ingreso un numero erroneo por favor\nIngrese como parámetro, un numero de digitos correcto (mayor que 0): ");
-                totalDigitos = aux.nextInt();
-            }
+        
         }
 
         return totalDigitos;
     }
       public static int contadorDivisionEntera(int numComparar) {
         int ndigitos;
-        //cambia i por numcomparar.
         int divisionEntera = numComparar;
         int contador = 0;
         while (divisionEntera != 0) {
